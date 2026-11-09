@@ -4,9 +4,9 @@
       "label": "DESIGN EXPLORATION",
       "skills": [
         {
-          "id": "queue",
-          "name": "/queue",
-          "description": "Collect action items in a running list; build only when you explicitly ask to execute",
+          "id": "mock",
+          "name": "/mock",
+          "description": "Explore multiple visual iterations in the same chat window without having to click a link to review a detailed artifact",
           "status": "copy"
         },
         {
@@ -16,9 +16,9 @@
           "status": "copy"
         },
         {
-          "id": "mock",
-          "name": "/mock",
-          "description": "Explore multiple visual iterations in the same chat window without having to click a link to review a detailed artifact",
+          "id": "queue",
+          "name": "/queue",
+          "description": "Collect action items in a running list; build only when you explicitly ask to execute",
           "status": "copy"
         },
         {
