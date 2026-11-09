@@ -1,6 +1,7 @@
-# Design Skills for Claude Code — site
+# AI Design Workflows – site
 
-Landing site for Kanza's design skills, live at https://kanzariaz.github.io/design-skills/
+Landing site for Kanza's design skills, branded **AI Design Workflows** (renamed from
+"Design Skills for Claude Code" 2026-11-09), live at https://kanzariaz.github.io/design-skills/
 (GitHub Pages from `main`/docs). `docs/` is the deliverable; rows render client-side
 from `docs/skills.json`; Copy buttons copy `npx skills add kanzariaz/design-skills -s <id>`
 and prefetch `docs/skills/<id>/SKILL.md`. Keep `docs/.nojekyll`.
@@ -9,8 +10,10 @@ and prefetch `docs/skills/<id>/SKILL.md`. Keep `docs/.nojekyll`.
 
 - Funnel: dictate → edit → verify on localhost preview (launch.json `design-skills-site`,
   port 4173) → push on the user's word. Big/risky rounds go on a test branch first.
-- The user drives with /list-it (append per item, execute on word), /explore, /mock-it.
-  Mock before building; when the user says "mock", do NOT touch files.
+- The user drives with /queue (append per item, execute on word), /spar, /mock, /park
+  (renamed 2026-11-09 from /list-it, /explore, /mock-it, /park-it; the user may still
+  have the old names installed locally). Mock before building; when the user says
+  "mock", do NOT touch files. Parked decisions live in `docs/parked.md`.
 - User is learning git — explain terminal steps plainly, one at a time. Their GitHub
   PAT is in the macOS keychain (set up 2026-09-05), so Claude can push. No brew, no gh.
 - En dashes (–) everywhere in site copy; em dashes are banned.
@@ -42,16 +45,38 @@ and prefetch `docs/skills/<id>/SKILL.md`. Keep `docs/.nojekyll`.
   no box animations, that's a locked veto), records the source skill.
 - When a skill ships: flip its skills.json `status` to "copy" — everything else follows.
 
+## Skills (docs/skills.json)
+
+- Design Exploration: /mock, /spar, /queue, /park (all copy).
+- Design Execution: /canvas (soon, not yet specced), /save-rationale (copy),
+  /design-eval (soon). save-rationale and design-eval keep their names for now.
+
 ## Analytics (TelemetryDeck, live)
 
-pageview · copySkill{skill} · notifyClick{skill} · signupSuccess{source} ·
-signupError{kind: invalid|network} · socialClick{platform}. APP_ID is set in
-docs/analytics.js.
+pageview{path} · copySkill{skill} · notifyClick{skill} · signupSuccess{source} ·
+signupError{kind: invalid|network} · socialClick{platform}. Every signal also carries
+`channel` (visit source: `?utm_source=`/`?ref=` tag, else referrer short name –
+linkedin, substack, x, google, github – else "direct"; kept per visit in
+sessionStorage). Share tagged links. APP_ID is set in docs/analytics.js.
+
+## Rebrand + domain plan
+
+- Brand: AI Design Workflows. Domain `aidesignworkflows.com` is owned (GoDaddy).
+- Order: redesign first on `test/ai-design-workflows` (pushes go to
+  `claude/elegant-archimedes-7v80xn`) → `docs/CNAME` + GoDaddy DNS + Pages custom
+  domain → only then rename the repo to `ai-design-workflows` (renaming earlier breaks
+  the github.io URL, which does not redirect without a custom domain).
+- Repo stays public (installs need it); share the site link, README points to the site.
+- Redesign direction is parked in `docs/parked.md` (signup-first mockups, Think/Make/Build
+  grouping still to mock).
 
 ## Open items
 
 - Kit custom field `source` (user-side, 1 min) for source data to persist.
 - Kit double opt-in: decide keep/disable; adjust success copy if disabled.
 - Favicon slash is a drawn bar, not the true Fraunces glyph — trace the glyph if wanted.
+- Kit welcome email still lists /park as coming soon – edit it in Kit (repo copy in
+  `emails/welcome.html` is updated).
+- GoDaddy DNS records not yet added (A records to GitHub Pages IPs + `www` CNAME).
 
 Rationale and rejected directions: docs/design-context.md.
