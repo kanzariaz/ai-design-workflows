@@ -4,28 +4,28 @@
       "label": "DESIGN EXPLORATION",
       "skills": [
         {
-          "id": "list-it",
-          "name": "/list-it",
+          "id": "queue",
+          "name": "/queue",
           "description": "Collect action items in a running list; build only when you explicitly ask to execute",
           "status": "copy"
         },
         {
-          "id": "explore",
-          "name": "/explore",
+          "id": "spar",
+          "name": "/spar",
           "description": "A thinking-out-loud sandbox that runs parallel to your working list without mixing context; topics stay undecided by definition",
           "status": "copy"
         },
         {
-          "id": "mock-it",
-          "name": "/mock-it",
+          "id": "mock",
+          "name": "/mock",
           "description": "Explore multiple visual iterations in the same chat window without having to click a link to review a detailed artifact",
           "status": "copy"
         },
         {
-          "id": "park-it",
-          "name": "/park-it",
+          "id": "park",
+          "name": "/park",
           "description": "Park explored decisions with context for later; summon the backlog when you're ready to tackle it",
-          "status": "soon"
+          "status": "copy"
         }
       ]
     },
