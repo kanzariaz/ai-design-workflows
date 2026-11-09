@@ -9,3 +9,9 @@ The durable backlog for this project: open decisions and deferred work. Items le
 ### npx copy-button + toast — resolved 2026-08-26
 
 → Built: Copy Skill buttons copy `npx skills add kanzariaz/design-skills -s <skill>`; hero-aligned toast (ground surface, 1px #e6efab stroke, 10px radius, soft shadow; top-center fixed on mobile) is the sole click feedback, text "/<skill> copied — paste into Claude Code or your terminal." Raw-markdown copying and the in-button label flash were removed.
+
+### Canvas review – parked 2026-11-09
+
+**Left off:** choosing a board, a coming-soon treatment and a form style
+**Open:** A, B or C · 4 coming-soon treatments · 4 form styles · OK the placeholder copy
+**Link:** [canvas](https://claude.ai/artifact/8tRj6EHE2dzvonf3sSTrVa)
