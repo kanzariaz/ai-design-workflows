@@ -143,14 +143,12 @@ a:hover { color: var(--color-ink); }
 
 .skill-row__name {
   margin: 0;
-  width: 160px;
+  width: 212px; /* fits the longest name (/canvas-capture) on one line */
   flex-shrink: 0;
   font: var(--text-skill-name);
   font-variation-settings: var(--display-variation);
   color: var(--color-ink);
-  /* a name longer than its column wraps (hyphens are break points) instead
-     of running into the description; the row gap stays the minimum 24px */
-  overflow-wrap: break-word;
+  white-space: nowrap; /* names never break at a hyphen */
 }
 
 .skill-row__desc {
@@ -489,7 +487,9 @@ a:hover { color: var(--color-ink); }
 
 /* ---- Responsive ---- */
 
-@media (max-width: 720px) {
+/* 820px, not 720: with the 212px name column, upright tablets get the stacked
+   layout instead of a squeezed description column */
+@media (max-width: 820px) {
   :root { --page-pad-x: 24px; --section-gap: 64px; }
 
   .page { padding-top: 72px; }
