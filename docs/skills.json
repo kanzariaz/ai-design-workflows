@@ -4,26 +4,26 @@
       "label": "DESIGN EXPLORATION",
       "skills": [
         {
-          "id": "mock",
-          "name": "/mock",
+          "id": "mock-it",
+          "name": "/mock-it",
           "description": "Explore multiple visual iterations in the same chat window without having to click a link to review a detailed artifact",
           "status": "copy"
         },
         {
-          "id": "spar",
-          "name": "/spar",
+          "id": "jam-with-me",
+          "name": "/jam-with-me",
           "description": "A thinking-out-loud sandbox that runs parallel to your working list without mixing context; topics stay undecided by definition",
           "status": "copy"
         },
         {
-          "id": "queue",
-          "name": "/queue",
+          "id": "batch-it",
+          "name": "/batch-it",
           "description": "Collect action items in a running list; build only when you explicitly ask to execute",
           "status": "copy"
         },
         {
-          "id": "park",
-          "name": "/park",
+          "id": "park-it",
+          "name": "/park-it",
           "description": "Park explored decisions with context for later; summon the backlog when you're ready to tackle it",
           "status": "copy"
         }
@@ -33,9 +33,9 @@
       "label": "DESIGN EXECUTION",
       "skills": [
         {
-          "id": "canvas",
-          "name": "/canvas",
-          "description": "Opens a design canvas and asks which flow to put on it",
+          "id": "canvas-capture",
+          "name": "/canvas-capture",
+          "description": "Captures your implemented designs on one canvas – a bird's-eye source of truth, created the first time and refreshed every run after",
           "status": "soon"
         },
         {

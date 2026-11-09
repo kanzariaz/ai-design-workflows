@@ -2,7 +2,7 @@
 // A "copy" skill's button copies its one-line installer; the hero toast is
 // the only click feedback (the button label never changes).
 
-const REPO = 'kanzariaz/design-skills';
+const REPO = 'kanzariaz/ai-design-workflows';
 
 const COPY_ICON = '<svg class="btn__icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect x="5.5" y="5.5" width="8" height="8" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect><path d="M10.5 3.5V3a1.5 1.5 0 0 0-1.5-1.5H4A1.5 1.5 0 0 0 2.5 3v5A1.5 1.5 0 0 0 4 9.5h1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>';
 

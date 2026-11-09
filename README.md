@@ -8,10 +8,10 @@ Don't reinvent the wheel. These skills bring the way you already explore, decide
 
 | Skill | What it does | Status |
 | --- | --- | --- |
-| [/queue](docs/skills/queue/SKILL.md) | collect action items in a running list; build only when you explicitly ask to execute | available |
-| [/spar](docs/skills/spar/SKILL.md) | a thinking-out-loud sandbox that runs parallel to your working list without mixing context; topics stay undecided by definition | available |
-| [/mock](docs/skills/mock/SKILL.md) | explore multiple visual iterations in the same chat window without having to click a link to review a detailed artifact | available |
-| [/park](docs/skills/park/SKILL.md) | park explored decisions with context for later; summon the backlog when you're ready to tackle it | available |
+| [/batch-it](docs/skills/batch-it/SKILL.md) | collect action items in a running list; build only when you explicitly ask to execute | available |
+| [/jam-with-me](docs/skills/jam-with-me/SKILL.md) | a thinking-out-loud sandbox that runs parallel to your working list without mixing context; topics stay undecided by definition | available |
+| [/mock-it](docs/skills/mock-it/SKILL.md) | explore multiple visual iterations in the same chat window without having to click a link to review a detailed artifact | available |
+| [/park-it](docs/skills/park-it/SKILL.md) | park explored decisions with context for later; summon the backlog when you're ready to tackle it | available |
 | /design-eval | audit a component, a page, or an entire flow against your design system; resolve inconsistencies, add new components, styles or variants | coming soon |
 
 ## Install a skill

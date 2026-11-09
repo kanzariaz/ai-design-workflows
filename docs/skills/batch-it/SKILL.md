@@ -1,9 +1,9 @@
 ---
-name: queue
-description: Start collecting a numbered list of changes the user wants, WITHOUT executing any of them. Use when the user invokes /queue or says "start a list", "let me list the changes", "add to the list". Stay in collection mode — echo the running list back after each addition and ask if there's more — until the user explicitly says to execute/go/start, and only then begin working through the items.
+name: batch-it
+description: Start collecting a numbered list of changes the user wants, WITHOUT executing any of them. Use when the user invokes /batch-it or says "batch it", "start a list", "let me list the changes", "add to the list". Stay in collection mode — echo the running list back after each addition and ask if there's more — until the user explicitly says to execute/go/start, and only then begin working through the items.
 ---
 
-# queue — collect first, execute on "go"
+# batch-it — collect first, execute on "go"
 
 The user dictates changes faster than they want them executed — often by voice, in
 bursts, while looking at the running product. This skill separates *capturing* the
@@ -11,11 +11,11 @@ work from *doing* the work so nothing gets lost and nothing starts prematurely.
 
 ## Collection mode (starts immediately on invocation)
 
-1. ONE running list per session: the first /queue opens it; every later
-   /queue invocation APPENDS to it (the user invokes the skill per item —
+1. ONE running list per session: the first /batch-it opens it; every later
+   /batch-it invocation APPENDS to it (the user invokes the skill per item —
    that's the normal rhythm, not a reset). A list only resets after it has been
    executed. If the user's invocation contains items, capture them.
-   The user may interleave /spar rounds while the list is open — exploration
+   The user may interleave /jam-with-me rounds while the list is open — exploration
    never touches the list; its outcome joins only when the user says so.
 2. After every user message, restate the FULL numbered list so far — each item as one
    short line in your own words (confirm interpretation, especially for voice-garbled
@@ -54,7 +54,7 @@ one line. Items that carried decisions (a picked option, a chosen direction) do
 NOT survive the discard as recorded decisions — if the user wants one kept, it
 must be re-listed or recorded wherever the project tracks deferred work; offer
 that only when a dropped item contained a real decision. A discarded list resets
-the session's list — the next /queue opens a fresh one.
+the session's list — the next /batch-it opens a fresh one.
 
 ## Execution mode
 

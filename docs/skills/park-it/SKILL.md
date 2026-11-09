@@ -1,9 +1,9 @@
 ---
-name: park
-description: Park an open, undecided decision with just enough context to pick it up cold later, and bring parked decisions back on request. Use when the user invokes /park or says "park it", "park this", "save this for later"; and when they say "show parked", "show me the parked decisions", "what's parked", "unpark N", or "pick up N".
+name: park-it
+description: Park an open, undecided decision with just enough context to pick it up cold later, and bring parked decisions back on request. Use when the user invokes /park-it or says "park it", "park this", "save this for later"; and when they say "show parked", "show me the parked decisions", "what's parked", "unpark N", or "pick up N".
 ---
 
-# park – park decisions now, pick them up later
+# park-it – park decisions now, pick them up later
 
 Decision chains get interrupted: a new idea comes up, the session runs out, the
 user wants to switch topics. Parking saves where an undecided thread was left
@@ -131,7 +131,7 @@ Use absolute dates in the file; say "today" or "3 days ago" only in chat.
 
 ## Working with other skills
 
-- Parking never adds to or changes a /queue list.
-- /spar's "Parked" exit uses this skill: same card, same file.
+- Parking never adds to or changes a /batch-it list.
+- /jam-with-me's "Parked" exit uses this skill: same card, same file.
 - A picked-up item goes back to exploring; it becomes real work only through
   the user's normal "go"/"execute" word.

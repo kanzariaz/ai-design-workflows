@@ -1,16 +1,28 @@
-# Design Skills for Claude Code — site
+# AI Design Workflows — site
 
-Landing site for Kanza's design skills, live at https://kanzariaz.github.io/design-skills/
-(GitHub Pages from `main`/docs). `docs/` is the deliverable; rows render client-side
-from `docs/skills.json`; Copy buttons copy `npx skills add kanzariaz/design-skills -s <id>`
+Landing site for Kanza's design skills, live at https://aidesignworkflows.com
+(repo `kanzariaz/ai-design-workflows`, renamed from `design-skills`; GitHub Pages from
+`main`/docs). `docs/` is the deliverable; rows render client-side
+from `docs/skills.json`; Copy buttons copy `npx skills add kanzariaz/ai-design-workflows -s <id>`
 and prefetch `docs/skills/<id>/SKILL.md`. Keep `docs/.nojekyll`.
 
 ## Working agreements
 
 - Funnel: dictate → edit → verify on localhost preview (launch.json `design-skills-site`,
   port 4173) → push on the user's word. Big/risky rounds go on a test branch first.
-- The user drives with /list-it (append per item, execute on word), /explore, /mock-it.
+- The user drives with /batch-it (append per item, execute on word), /jam-with-me, /mock-it, /park-it.
   Mock before building; when the user says "mock", do NOT touch files.
+- Skill naming (locked, 2026-11-10) has two rules. It's branding (names read as Kanza's
+  skills, not generic ones found elsewhere) and recall UX.
+  1. Spoken phrases for in-the-moment actions – the name is what you'd say:
+     /mock-it, /jam-with-me, /batch-it, /park-it, /save-rationale.
+  2. Family prefixes for tool groups that will grow: canvas- (/canvas-capture; more
+     canvas skills planned), design- (/design-eval).
+  Each SKILL.md lists its own name as a spoken trigger. History: think-with-me → jam-with-me,
+  queue-it → batch-it, move-to-canvas → canvas-capture.
+- /canvas-capture is NOT exploration (mock-it is for inline iteration). It's the end-of-work
+  step: puts the implemented designs on one canvas artifact as a bird's-eye source of
+  truth; creates the canvas if none exists, refreshes it on every later run.
 - User is learning git — explain terminal steps plainly, one at a time. Their GitHub
   PAT is in the macOS keychain (set up 2026-09-05), so Claude can push. No brew, no gh.
 - En dashes (–) everywhere in site copy; em dashes are banned.
