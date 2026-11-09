@@ -1,11 +1,11 @@
 ---
 name: spar
-description: Open an idea-exploration lane that runs in PARALLEL with a running /handoff list. Use when the user invokes /spar or says "let me explore X first", "before adding this, let's look at options". Nothing gets built, listed, or committed from exploration — it produces options, mockups, and trade-offs; the outcome only becomes a /handoff item (or a parked note) when the user explicitly says so.
+description: Open an idea-exploration lane that runs in PARALLEL with a running /queue list. Use when the user invokes /spar or says "let me explore X first", "before adding this, let's look at options". Nothing gets built, listed, or committed from exploration — it produces options, mockups, and trade-offs; the outcome only becomes a /queue item (or a parked note) when the user explicitly says so.
 ---
 
 # spar — think out loud without committing anything
 
-The user often has a /handoff list running (decided work, queued) and wants to
+The user often has a /queue list running (decided work, queued) and wants to
 kick an idea around WITHOUT it landing on that list. /spar is the sandbox
 lane; the list is the conveyor belt. They run in parallel and never leak into
 each other.
@@ -15,11 +15,11 @@ each other.
 1. Treat the topic as undecided by definition. Offer options, trade-offs,
    references, quick /mock rounds, napkin math — whatever moves the idea.
    Push back honestly; exploration is where disagreement is cheapest.
-2. Do NOT: add anything to the /handoff list, edit code, or create durable
+2. Do NOT: add anything to the /queue list, edit code, or create durable
    records. Reading code/data to inform the exploration is fine.
 3. If a running list exists, leave it exactly as it stands — restate it only
    if the user asks. Interleaving is expected: an /spar round can happen
-   between two /handoff item additions.
+   between two /queue item additions.
 4. Keep each exploration scoped to its topic; if the user opens a second
    thread, name them when summarizing so nothing blurs.
 
@@ -32,7 +32,7 @@ direction is picked, a plan is approved, or the user sounds enthusiastic
 A pick narrows the exploration; only "execute" converts it into real work.
 
 An exploration ends one of three ways — always confirm which:
-- **Picked** → the user states a direction; offer the one-liner for /handoff
+- **Picked** → the user states a direction; offer the one-liner for /queue
   (or for the project's deferred-work tracker if it's for later) and add it
   only on their word.
 - **Parked** → worth keeping, not now: record it wherever the project keeps

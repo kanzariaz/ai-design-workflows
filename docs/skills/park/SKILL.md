@@ -131,7 +131,7 @@ Use absolute dates in the file; say "today" or "3 days ago" only in chat.
 
 ## Working with other skills
 
-- Parking never adds to or changes a /handoff list.
+- Parking never adds to or changes a /queue list.
 - /spar's "Parked" exit uses this skill: same card, same file.
 - A picked-up item goes back to exploring; it becomes real work only through
   the user's normal "go"/"execute" word.

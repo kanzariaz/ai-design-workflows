@@ -4,8 +4,8 @@
       "label": "DESIGN EXPLORATION",
       "skills": [
         {
-          "id": "handoff",
-          "name": "/handoff",
+          "id": "queue",
+          "name": "/queue",
           "description": "Collect action items in a running list; build only when you explicitly ask to execute",
           "status": "copy"
         },
@@ -25,7 +25,7 @@
           "id": "park",
           "name": "/park",
           "description": "Park explored decisions with context for later; summon the backlog when you're ready to tackle it",
-          "status": "soon"
+          "status": "copy"
         }
       ]
     },

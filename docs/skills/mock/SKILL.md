@@ -25,7 +25,7 @@ fast looks).
 4. Real copy, never lorem; honor the project's locked product decisions and
    vocabulary (check CLAUDE.md / context docs before inventing labels).
 5. End by asking which option (or which pieces of several) to take forward. A
-   mockup round is EXPLORATION — nothing goes on the /handoff list and nothing gets
+   mockup round is EXPLORATION — nothing goes on the /queue list and nothing gets
    built from it until the user picks a direction.
 6. Only escalate to an artifact if the user asks for one (e.g. wants to share it or
    keep it as a decision record).
