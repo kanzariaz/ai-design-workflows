@@ -13,6 +13,6 @@ The durable backlog for this project: open decisions and deferred work. Items le
 ### Signup-first redesign mockups for AI Design Workflows – parked 2026-11-09
 
 **Left off:** choosing a board, a coming-soon treatment and a form style; mock the new structure next
-**Decided:** rows grouped Think (/spar, /park) · Make (/mock, /canvas soon) · Build (/handoff, save-rationale, design-eval soon) · renames /spar, /mock, /handoff, /park · ship /park now · /canvas new, coming soon
-**Open:** A, B or C · 4 coming-soon treatments · 4 form styles · OK the placeholder copy · new names for save-rationale and design-eval (not annotate, not qa)
+**Decided:** rows grouped Think (/spar, /park) · Make (/mock, /canvas soon) · Build (/handoff, save-rationale, design-eval soon) · renames /spar, /mock, /handoff, /park · ship /park now · /canvas new, coming soon · save-rationale and design-eval keep their names for now
+**Open:** A, B or C · 4 coming-soon treatments · 4 form styles · OK the placeholder copy
 **Link:** [canvas](https://claude.ai/artifact/8tRj6EHE2dzvonf3sSTrVa)
