@@ -26,8 +26,9 @@ and prefetch `docs/skills/<id>/SKILL.md`. Keep `docs/.nojekyll`.
 ## Email signup (live, wired)
 
 - Posts directly to Kit form `9881799` (`app.kit.com/forms/9881799/subscriptions`),
-  FormData `email_address` + `fields[source]`. No proxy, no keys. Double opt-in is ON
-  → success copy says "check your email to confirm"; soften if the user disables it.
+  FormData `email_address` + `fields[source]`. No proxy, no keys. Intended setting is
+  SINGLE opt-in (user confirmed 2026-11-09) → success copy "You're on the list!". If Kit
+  ever has the incentive/confirmation email on, the copy is wrong – turn it off in Kit.
 - ONE list, no per-skill segments (locked decision). Per-skill intent is captured only
   as the `source` field (skill id or "direct") — needs a custom field `source` created
   in Kit to persist; unconfirmed whether the user made it.
@@ -73,7 +74,7 @@ sessionStorage). Share tagged links. APP_ID is set in docs/analytics.js.
 ## Open items
 
 - Kit custom field `source` (user-side, 1 min) for source data to persist.
-- Kit double opt-in: decide keep/disable; adjust success copy if disabled.
+- Confirm in Kit that form 9881799 has the incentive (confirmation) email OFF.
 - Favicon slash is a drawn bar, not the true Fraunces glyph — trace the glyph if wanted.
 - Kit welcome email still lists /park as coming soon – edit it in Kit (repo copy in
   `emails/welcome.html` is updated).
