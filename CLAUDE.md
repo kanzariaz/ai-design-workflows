@@ -1,8 +1,9 @@
 # AI Design Workflows – site
 
 Landing site for Kanza's design skills, branded **AI Design Workflows** (renamed from
-"Design Skills for Claude Code" 2026-11-09), live at https://kanzariaz.github.io/design-skills/
-(GitHub Pages from `main`/docs). `docs/` is the deliverable; rows render client-side
+"Design Skills for Claude Code" 2026-11-09), live at https://aidesignworkflows.com
+(GitHub Pages from `main`/docs, custom domain via `docs/CNAME` since 2026-11-09; the old
+kanzariaz.github.io/design-skills/ URL redirects). Keep `docs/CNAME`. `docs/` is the deliverable; rows render client-side
 from `docs/skills.json`; Copy buttons copy `npx skills add kanzariaz/design-skills -s <id>`
 and prefetch `docs/skills/<id>/SKILL.md`. Keep `docs/.nojekyll`.
 
@@ -63,10 +64,11 @@ sessionStorage). Share tagged links. APP_ID is set in docs/analytics.js.
 ## Rebrand + domain plan
 
 - Brand: AI Design Workflows. Domain `aidesignworkflows.com` is owned (GoDaddy).
-- Order: redesign first on `test/ai-design-workflows` (pushes go to
-  `claude/elegant-archimedes-7v80xn`) → `docs/CNAME` + GoDaddy DNS + Pages custom
-  domain → only then rename the repo to `ai-design-workflows` (renaming earlier breaks
-  the github.io URL, which does not redirect without a custom domain).
+- Domain is live: GoDaddy DNS has 4 A records (185.199.108–111.153) + `www` CNAME →
+  kanzariaz.github.io; Pages DNS check passed 2026-11-09. Redesign continues on
+  `test/ai-design-workflows` (pushes go to `claude/elegant-archimedes-7v80xn`).
+- Next: repo rename to `ai-design-workflows` (safe now the custom domain is set), then
+  update `REPO` in docs/script.js, README and this file.
 - Repo stays public (installs need it); share the site link, README points to the site.
 - Redesign direction is parked in `docs/parked.md` (signup-first mockups, Think/Make/Build
   grouping still to mock).
@@ -78,6 +80,6 @@ sessionStorage). Share tagged links. APP_ID is set in docs/analytics.js.
 - Favicon slash is a drawn bar, not the true Fraunces glyph — trace the glyph if wanted.
 - Kit welcome email still lists /park as coming soon – edit it in Kit (repo copy in
   `emails/welcome.html` is updated).
-- GoDaddy DNS records not yet added (A records to GitHub Pages IPs + `www` CNAME).
+- Tick "Enforce HTTPS" in Pages settings once the certificate is issued.
 
 Rationale and rejected directions: docs/design-context.md.
