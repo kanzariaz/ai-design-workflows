@@ -1,14 +1,19 @@
 /* Design tokens — "sage" (A) colorway trial on the test branch: current hue, chroma turned down */
 :root {
   /* Color styles */
-  --color-ground: #f2f5e4;      /* sage ground */
-  --color-hairline: #d5ddb4;    /* muted sage hairline */
-  --color-ink: #171a0e;         /* near-black green ink */
-  --color-olive: #565c40;       /* muted olive — footer links/labels */
-  --color-olive-deep: #2a2f1b;  /* secondary text — subheading, row descriptions */
-  --color-pill: #0a0c05;
+  --color-ground: #f4f1ea;      /* warm paper ground */
+  --color-hairline: #ddd6c8;    /* muted warm hairline */
+  --color-ink: #1f1c17;         /* near-black warm ink */
+  --color-olive: #6e6658;       /* warm taupe — footer links/labels */
+  --color-olive-deep: #3a352d;  /* secondary text — subheading, row descriptions */
+  --color-tonal: #ded2bb;       /* secondary buttons (Notify Me, hero Subscribe): deep sand */
+  --color-tonal-ink: var(--color-ink); /* text and icons on secondary */
+  --color-tonal-hover: #d3c6ab;
+  --color-field-edge: #cfc5b4;  /* outline of the email fields */
+  --color-halo: #e9e3d7;        /* neutral sand ring around a focused field */
+  --color-pill: #15130f;
   --color-pill-label: var(--color-ground); /* pill label/icon matches the ground */
-  --color-toast-stroke: #e3e9cc;  /* barely-there sage edge on the toast */
+  --color-toast-stroke: #e5dfd2;  /* barely-there sage edge on the toast */
   --color-success: #3e7a1c;     /* success notes -- kin to the old copy-button green */
   --color-error: #8a3b25;       /* error notes -- muted rust */
 
@@ -18,7 +23,7 @@
 
   /* Text styles */
   --text-title: 700 clamp(30px, 8vw, 44px)/1.23 var(--font-display);
-  --text-subtitle: italic 400 clamp(17px, 4.8vw, 22px)/1.25 var(--font-display);
+  --text-subtitle: 400 clamp(17px, 4.8vw, 22px)/1.35 var(--font-display);
   --text-skill-name: 600 clamp(21px, 6vw, 25px)/1.16 var(--font-display);
   --text-label: 600 18px/1.4 var(--font-display);
   --text-section-label: 600 18px/1.4 var(--font-body);
@@ -28,7 +33,7 @@
   --text-caption: 600 14px/1.4 var(--font-body); /* error notes, small sans annotations */
   --tracking-label: 0.09em;
 
-  --content-width: 800px;       /* max width of every section's content */
+  --content-width: 920px;       /* max width of every section's content */
   --page-pad-x: 56px;
   --page-pad-top: 60px;
   --page-pad-bottom: 120px;
@@ -68,12 +73,21 @@ a:hover { color: var(--color-ink); }
 
 /* ---- Hero ---- */
 
+/* two columns: title + description on the left, the signup form on the right */
 .hero {
   position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  column-gap: 80px;
+  align-items: end;
+}
+
+.hero__intro {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 7px;
+  min-width: 0;
 }
 
 .hero__title-row {
@@ -93,7 +107,6 @@ a:hover { color: var(--color-ink); }
 
 .hero__subtitle {
   margin: 0;
-  max-width: 80%;
   font: var(--text-subtitle);
   font-variation-settings: var(--display-variation);
   color: var(--color-olive-deep);
@@ -190,6 +203,7 @@ a:hover { color: var(--color-ink); }
 .skill-row__action {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   width: 220px;
   flex-shrink: 0;
 }
@@ -233,33 +247,103 @@ a:hover { color: var(--color-ink); }
   background: transparent;
 }
 
+/* Button tiers (set C): primary = ink pill (Copy Skill), secondary = tonal
+   sand fill with no outline (Notify Me, hero Subscribe), tertiary = hairline
+   outline (Share). No ink outlines anywhere. */
 .btn--notify {
   gap: 5px;
-  padding: 11px 16px;
-  border-style: solid; /* a working action gets a confident stroke; dotted now belongs to the status chip */
-  border-color: var(--color-olive); /* the whole coming-soon cluster shares one stroke color */
-  background: #eef2da; /* same barely-there fill as the chips and footer card */
+  padding: 12px 17px;
+  border: 0;
+  background: var(--color-tonal);
+  color: var(--color-tonal-ink);
   cursor: pointer;
   transition: background 120ms ease;
 }
 
-.btn--notify:hover { background: #e7edd2; }
+.btn--notify:hover { background: var(--color-tonal-hover); }
 .btn--notify:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
 .btn--notify:active { transform: scale(0.98); }
+
+/* Share: tertiary, icon-only hairline circle, same height as the pills */
+.btn--share {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 1px solid var(--color-hairline);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+  transition: background 120ms ease, transform 80ms ease;
+}
+
+.btn--share:hover { background: #efebe3; }
+.btn--share:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
+.btn--share:active { transform: scale(0.96); }
+
+/* Split control: the main button with Share joined on its right end.
+   Primary rows (Copy) are all ink; coming-soon rows (Notify) all tonal. */
+.btn-split { display: flex; align-items: stretch; }
+
+.btn-split > .btn:first-child { border-radius: 24px 0 0 24px; }
+
+.btn-split > .btn--share {
+  width: 44px;
+  height: auto;
+  border: 0;
+  border-radius: 0 24px 24px 0;
+}
+
+.btn-split--primary > .btn--share {
+  background: var(--color-pill);
+  color: var(--color-pill-label);
+  border-left: 1px solid rgba(244, 241, 234, 0.22);
+}
+
+.btn-split--secondary > .btn--share {
+  background: var(--color-tonal);
+  color: var(--color-tonal-ink);
+  border-left: 1px solid rgba(31, 28, 23, 0.14);
+}
+
+/* hover fills each half on its own (a ring around half a control looks broken) */
+.btn-split--primary > .btn:hover { box-shadow: none; background: #3a352d; }
+.btn-split--secondary > .btn:hover { background: var(--color-tonal-hover); }
 
 .btn__label--mobile { display: none; }
 
 /* ---- Email signup ---- */
 
+/* the signup sits in the hero's right column; its bottom lines up with
+   the description's bottom (hero aligns to end) */
+.signup { min-width: 0; }
+
+.signup .signup__form { position: relative; }
+
+/* hero form's status line hangs below the form so it doesn't shift the alignment */
+.signup .signup__note {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+}
+
+.signup__prompt {
+  margin: 0 0 10px 2px;
+  font: 400 14px/1.4 var(--font-body);
+  color: var(--color-olive);
+}
+
+
 .signup__title {
-  margin: 0 0 14px;
+  margin: 0 0 8px;
   font: var(--text-skill-name); /* same voice as the row names */
   font-variation-settings: var(--display-variation);
   color: var(--color-ink);
 }
 
 .signup__subtitle {
-  margin: 0 0 26px;
+  margin: 0 0 16px;
   font: var(--text-body);
   font-variation-settings: var(--display-variation);
   color: var(--color-olive-deep);
@@ -267,21 +351,23 @@ a:hover { color: var(--color-ink); }
 
 .signup__form { width: 100%; }
 
+/* field: pale sage with a hairline; typing turns it white with a soft sage halo */
 .signup__fields {
   display: flex;
   align-items: center;
-  width: min(420px, 100%);
-  padding: 4px 4px 4px 16px;
-  border: 1px solid var(--color-olive-deep); /* the section's one drawn object */
+  width: 100%;
+  padding: 0 18px;
+  border: 1px solid var(--color-hairline);
   border-radius: 24px;
-  background: #eef2da; /* rests on the Notify buttons' shared fill */
-  transition: background 160ms ease;
+  background: #efebe3;
+  transition: background 160ms ease, box-shadow 160ms ease;
 }
 
 .signup__fields[hidden] { display: none; }
 
 .signup__fields:focus-within {
-  background: #ffffff; /* the last step brighter while typing */
+  background: #ffffff;
+  box-shadow: 0 0 0 3px var(--color-halo);
 }
 
 .signup__fields:focus-within .signup__input::placeholder { opacity: 0.45; }
@@ -289,7 +375,7 @@ a:hover { color: var(--color-ink); }
 .signup__input {
   flex: 1;
   min-width: 0;
-  padding: 6px 8px 6px 0;
+  padding: 11px 0;
   border: 0;
   background: transparent;
   font: 400 16px/1.4 var(--font-body); /* an email address is data — control voice */
@@ -299,18 +385,26 @@ a:hover { color: var(--color-ink); }
 
 .signup__input::placeholder { color: var(--color-olive); opacity: 0.8; transition: opacity 160ms ease; }
 
+/* Subscribe: secondary tier, full width under the field */
 .signup__btn {
-  flex-shrink: 0;
-  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  height: 44px;
+  margin-top: 8px;
   padding: 0 22px;
   border: 0;
-  border-radius: 19px;
-  background: var(--color-pill);
-  color: var(--color-pill-label);
+  border-radius: 24px;
+  background: var(--color-tonal);
+  color: var(--color-tonal-ink);
   font: var(--text-button);
   cursor: pointer;
-  transition: box-shadow 120ms ease, transform 80ms ease;
+  transition: background 120ms ease, transform 80ms ease;
 }
+
+.signup__btn:hover { background: var(--color-tonal-hover); }
 
 .signup__btn:disabled {
   background: var(--color-hairline);
@@ -318,8 +412,7 @@ a:hover { color: var(--color-ink); }
   cursor: default;
 }
 
-.signup__btn:disabled:hover { box-shadow: none; }
-.signup__btn:hover { box-shadow: 0 0 0 1.5px var(--color-ink); }
+.signup__btn:disabled:hover { background: var(--color-hairline); }
 .signup__btn:focus-visible { outline: 2px solid var(--color-ink); outline-offset: 2px; }
 .signup__btn:active { transform: scale(0.98); }
 
@@ -348,11 +441,11 @@ a:hover { color: var(--color-ink); }
 }
 
 .signup__note.is-success::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='11' fill='%233e7a1c'/%3E%3Cpath d='M6.2 11.4l3.2 3.2 6.4-6.9' fill='none' stroke='%23f2f5e4' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='11' fill='%233e7a1c'/%3E%3Cpath d='M6.2 11.4l3.2 3.2 6.4-6.9' fill='none' stroke='%23f4f1ea' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
 .signup__note.is-error::before {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='11' fill='%238a3b25'/%3E%3Cpath d='M11 5.5v6.2' fill='none' stroke='%23f2f5e4' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='11' cy='15.9' r='1.4' fill='%23f2f5e4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 22 22'%3E%3Ccircle cx='11' cy='11' r='11' fill='%238a3b25'/%3E%3Cpath d='M11 5.5v6.2' fill='none' stroke='%23f4f1ea' stroke-width='2.2' stroke-linecap='round'/%3E%3Ccircle cx='11' cy='15.9' r='1.4' fill='%23f4f1ea'/%3E%3C/svg%3E");
 }
 
 /* ---- Toast ---- */
@@ -365,7 +458,7 @@ a:hover { color: var(--color-ink); }
   display: flex;
   align-items: center;
   gap: 12px;
-  background: #eef2da; /* same fill and stroke as the footer card */
+  background: #efebe3; /* same fill and stroke as the footer card */
   border: 1px solid var(--color-hairline);
   border-radius: 10px;
   padding: 18px 30px 22px 18px;
@@ -414,16 +507,67 @@ a:hover { color: var(--color-ink); }
   max-width: var(--content-width);
 }
 
-/* The closing card: centered in the band (the page's one centered moment),
-   content inside stays left-aligned to keep the page's rhythm. */
-/* The signup is a flat section in the skill-table grammar: hairline rails
-   top and bottom, content flush to the band, page ground throughout. */
+/* The footer signup: a flat section in the skill-table grammar – hairline
+   rails top and bottom, content flush to the band, page ground throughout.
+   Same form as the hero's, in its original inline layout. */
 .footer__card {
   width: 100%;
   border-top: 1px solid var(--color-hairline);
   border-bottom: 1px solid var(--color-hairline);
   padding: 48px 0 34px;
 }
+
+.footer__signup .signup__title { margin-bottom: 14px; }
+.footer__signup .signup__subtitle { margin-bottom: 26px; }
+
+/* Joined form: an outlined email field with Subscribe joined on its right
+   end, like the split buttons – one 48px control – a touch taller than the
+   40px buttons so the field reads as a field. */
+.signup__form--inline .signup__fields {
+  height: 48px;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: none;
+}
+
+.footer__signup .signup__form--inline .signup__fields { width: min(420px, 100%); }
+
+.signup__form--inline .signup__input {
+  height: 48px;
+  box-sizing: border-box;
+  padding: 0 16px;
+  border: 1px solid var(--color-field-edge);
+  border-right: 0;
+  border-radius: 24px 0 0 24px;
+  background: transparent;
+  transition: background 160ms ease;
+}
+
+.signup__form--inline .signup__fields:focus-within {
+  background: none;
+  box-shadow: 0 0 0 3px var(--color-halo);
+}
+
+.signup__form--inline .signup__fields:focus-within .signup__input { background: #ffffff; }
+
+.signup__form--inline .signup__btn {
+  flex-shrink: 0;
+  width: auto;
+  height: 48px;
+  margin-top: 0;
+  padding: 0 18px 0 16px;
+  border-radius: 0 24px 24px 0;
+}
+
+/* footer Subscribe gets the primary (ink) treatment */
+.footer__signup .signup__btn {
+  background: var(--color-pill);
+  color: var(--color-pill-label);
+}
+
+.footer__signup .signup__btn:hover { background: #2e2a24; }
+.footer__signup .signup__btn:disabled { background: var(--color-hairline); color: var(--color-olive-deep); }
 
 .footer__meta {
   display: flex;
@@ -445,7 +589,7 @@ a:hover { color: var(--color-ink); }
   margin: 0;
   font: var(--text-body);
   font-variation-settings: var(--display-variation);
-  color: #78825c; /* a step lighter than olive — the quietest line on the page */
+  color: #8f877a; /* a step lighter than olive — the quietest line on the page */
 }
 
 .socials {
@@ -487,6 +631,13 @@ a:hover { color: var(--color-ink); }
 
 /* ---- Responsive ---- */
 
+/* narrow laptops/tablets: the 420px form would squeeze the description to
+   5 lines, so the form stacks under it (kept at its desktop width) */
+@media (max-width: 1040px) {
+  .hero { display: block; }
+  .signup { padding-top: 36px; max-width: 420px; }
+}
+
 /* 820px, not 720: with the 212px name column, upright tablets get the stacked
    layout instead of a squeezed description column */
 @media (max-width: 820px) {
@@ -507,23 +658,13 @@ a:hover { color: var(--color-ink); }
   }
 
   .btn { width: 104px; }
+  .btn.btn--share { width: 44px; }
 
-  /* Mobile button system — secondary (Copy): ink outline on the faint shared
-     fill; primary (Notify): no outline, a step-stronger fill. */
-  .btn--copy {
-    background: #eef2da;
-    color: var(--color-ink);
-    border: 1px solid var(--color-ink);
-    padding-top: 11px;
-    padding-bottom: 11px; /* keeps height with the added border */
-  }
+  /* phone keeps the same button tiers as desktop (set C) */
 
-  .btn--notify {
-    border: 0;
-    background: #e7edd2;
-    padding-top: 12px;
-    padding-bottom: 12px; /* border removed; padding keeps the 38px height */
-  }
+  /* hero stacks: title + description, then the signup form full width */
+  .hero { display: block; }
+  .signup { padding-top: 36px; }
 
   .btn__label--desktop { display: none; }
   .btn__label--mobile { display: inline; }
@@ -547,9 +688,12 @@ a:hover { color: var(--color-ink); }
     right: 16px;
   }
 
+  /* phone: name, then description, then Copy + Share on their own line
+     (long names leave no room for both buttons beside them) */
   .skill-row__action {
-    width: auto;
-    order: 1; /* pill shares the name's line; description wraps below */
+    width: 100%;
+    order: 3;
+    justify-content: flex-start;
   }
 
   .socials {

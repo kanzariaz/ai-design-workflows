@@ -56,7 +56,7 @@ and prefetch `docs/skills/<id>/SKILL.md`. Keep `docs/.nojekyll`.
 
 ## Analytics (TelemetryDeck, live)
 
-pageview · copySkill{skill} · notifyClick{skill} · signupSuccess{source} ·
+pageview · copySkill{skill} · shareSkill{skill, method: sheet|link} · notifyClick{skill} · signupSuccess{source, placement: hero|footer} ·
 signupError{kind: invalid|network} · socialClick{platform}. APP_ID is set in
 docs/analytics.js.
 

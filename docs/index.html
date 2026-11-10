@@ -16,14 +16,27 @@
 
   <main class="page">
     <header class="hero">
-      <div class="hero__title-row">
-        <h1 class="hero__title">AI Design Workflows</h1>
-        <div class="toast" id="toast" role="status" aria-live="polite">
-          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#565c40"></circle><path d="M6.2 11.4l3.2 3.2 6.4-6.9" stroke="#f2f5e4" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          <div><span class="toast__title"></span><span class="toast__text"></span></div>
+      <div class="hero__intro">
+        <div class="hero__title-row">
+          <h1 class="hero__title">AI Design&nbsp;–<br>Workflows</h1>
+          <div class="toast" id="toast" role="status" aria-live="polite">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="11" cy="11" r="11" fill="#6e6658"></circle><path d="M6.2 11.4l3.2 3.2 6.4-6.9" stroke="#f4f1ea" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div><span class="toast__title"></span><span class="toast__text"></span></div>
+          </div>
         </div>
+        <p class="hero__subtitle">Bring your design process into Claude Code through these skills. Make Claude work the way designers work.</p>
       </div>
-      <p class="hero__subtitle">Bring your design process into Claude Code through these skills. Make Claude work the way designers work.</p>
+
+      <aside class="signup" aria-labelledby="signup-prompt">
+        <form class="signup__form signup__form--inline" data-placement="hero" novalidate>
+          <p class="signup__prompt" id="signup-prompt">Get notified when a new skill drops</p>
+          <div class="signup__fields">
+            <input class="signup__input" type="email" name="email" placeholder="you@email.com" autocomplete="email" aria-label="Email address" required>
+            <button class="signup__btn" type="submit"><svg class="btn__icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.7 10.8H3.3c.9-.9 1.4-1.6 1.4-4.1 0-1.9 1.4-3.4 3.3-3.4s3.3 1.5 3.3 3.4c0 2.5.5 3.2 1.4 4.1z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.7 13a1.5 1.5 0 0 0 2.6 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg><span>Subscribe</span></button>
+          </div>
+          <p class="signup__note" role="status" aria-live="polite"></p>
+        </form>
+      </aside>
     </header>
 
     <div id="sections"></div>
@@ -33,17 +46,16 @@
     <div class="footer__inner">
       <div class="footer__card">
         <div class="footer__signup">
-          <h2 class="signup__title" id="signup-title">New skills<br>drop in your inbox –</h2>
+          <h2 class="signup__title" id="signup-title-footer">New skills<br>drop in your inbox&nbsp;–</h2>
           <p class="signup__subtitle">Get notified when a new skill is added to the list</p>
-          <form class="signup__form" id="signup-form" novalidate>
+          <form class="signup__form signup__form--inline" data-placement="footer" novalidate>
             <div class="signup__fields">
               <input class="signup__input" type="email" name="email" placeholder="you@email.com" autocomplete="email" aria-label="Email address" required>
-              <button class="signup__btn" type="submit">Subscribe</button>
+              <button class="signup__btn" type="submit"><svg class="btn__icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M12.7 10.8H3.3c.9-.9 1.4-1.6 1.4-4.1 0-1.9 1.4-3.4 3.3-3.4s3.3 1.5 3.3 3.4c0 2.5.5 3.2 1.4 4.1z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6.7 13a1.5 1.5 0 0 0 2.6 0" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg><span>Subscribe</span></button>
             </div>
-            <p class="signup__note" id="signup-note" role="status" aria-live="polite"></p>
+            <p class="signup__note" role="status" aria-live="polite"></p>
           </form>
         </div>
-        
       </div>
       <div class="footer__meta">
         <p class="footer__label">Other musings on AI, Design and Tech land here –</p>
