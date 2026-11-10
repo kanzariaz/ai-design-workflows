@@ -66,4 +66,7 @@ docs/analytics.js.
 - Kit double opt-in: decide keep/disable; adjust success copy if disabled.
 - Favicon slash is a drawn bar, not the true Fraunces glyph — trace the glyph if wanted.
 
+Canvas: https://claude.ai/artifact/WzXSU4oEDnSLPrKaPwo9Wd (Claude Design canvas; /canvas-capture
+updates it – edit the .dc.html files inside its `appifact-doc` JSON, never overwrite the page).
+
 Rationale and rejected directions: docs/design-context.md.

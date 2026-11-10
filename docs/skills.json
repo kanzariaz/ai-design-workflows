@@ -35,8 +35,8 @@
         {
           "id": "canvas-capture",
           "name": "/canvas-capture",
-          "description": "Captures your implemented designs on one canvas – a bird's-eye source of truth, created the first time and refreshed every run after",
-          "status": "soon"
+          "description": "Brings your designs from code to canvas – a frame per screen, sorted by flow and refreshed every run, so Figma stops being a storage unit",
+          "status": "copy"
         },
         {
           "id": "save-rationale",
