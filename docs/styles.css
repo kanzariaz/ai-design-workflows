@@ -29,6 +29,7 @@
   --text-section-label: 600 18px/1.4 var(--font-body);
   --text-footer-label: 600 18px/1.4 var(--font-body);
   --text-body: 400 18px/1.4 var(--font-display);
+  --text-body-sans: 400 16px/1.5 var(--font-body); /* footer subtext + musings line, in the buttons' face */
   --text-button: 600 14px/1 var(--font-body);
   --text-caption: 600 14px/1.4 var(--font-body); /* error notes, small sans annotations */
   --tracking-label: 0.09em;
@@ -344,8 +345,7 @@ a:hover { color: var(--color-ink); }
 
 .signup__subtitle {
   margin: 0 0 16px;
-  font: var(--text-body);
-  font-variation-settings: var(--display-variation);
+  font: var(--text-body-sans);
   color: var(--color-olive-deep);
 }
 
@@ -587,8 +587,7 @@ a:hover { color: var(--color-ink); }
 
 .footer__label {
   margin: 0;
-  font: var(--text-body);
-  font-variation-settings: var(--display-variation);
+  font: var(--text-body-sans);
   color: #8f877a; /* a step lighter than olive — the quietest line on the page */
 }
 
