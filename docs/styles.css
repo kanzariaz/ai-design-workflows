@@ -9,6 +9,7 @@
   --color-tonal: #ded2bb;       /* secondary buttons (Notify Me, hero Subscribe): deep sand */
   --color-tonal-ink: var(--color-ink); /* text and icons on secondary */
   --color-tonal-hover: #d3c6ab;
+  --color-row-hover: #efebe3;   /* whisper sand behind a hovered skill row */
   --color-field-edge: #cfc5b4;  /* outline of the email fields */
   --color-halo: #e9e3d7;        /* neutral sand ring around a focused field */
   --color-pill: #15130f;
@@ -200,6 +201,25 @@ a:hover { color: var(--color-ink); }
    The chip is centered on the rail, so the clearance comes out symmetric. */
 .skill-row--soon { padding-top: 26px; }
 .skill-row:has(+ .skill-row--soon) { padding-bottom: 26px; }
+
+/* Row hover: a full-bleed whisper-sand band that reaches 16px past the text
+   on each side. Drawn on a pseudo-element so the row's layout, its dividers
+   and the coming-soon chip stay put. Mouse/trackpad only – no sticky tap. */
+@media (hover: hover) and (pointer: fine) {
+  .skill-row { isolation: isolate; }
+
+  .skill-row::before {
+    content: '';
+    position: absolute;
+    inset: 0 -16px;
+    z-index: -1;
+    background: var(--color-row-hover);
+    opacity: 0;
+    transition: opacity 0.15s ease;
+  }
+
+  .skill-row:hover::before { opacity: 1; }
+}
 
 .skill-row__action {
   display: flex;
