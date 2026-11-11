@@ -10,6 +10,7 @@
   --color-tonal-ink: var(--color-ink); /* text and icons on secondary */
   --color-tonal-hover: #d3c6ab;
   --color-row-hover: #efebe3;   /* whisper sand behind a hovered skill row */
+  --color-selection: #f2c4a2;   /* apricot clay text-selection highlight */
   --color-field-edge: #cfc5b4;  /* outline of the email fields */
   --color-halo: #e9e3d7;        /* neutral sand ring around a focused field */
   --color-pill: #15130f;
@@ -51,6 +52,11 @@ body {
   font-family: var(--font-body);
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-selection);
+  color: var(--color-ink);
 }
 
 a { color: var(--color-olive); text-decoration: none; }
