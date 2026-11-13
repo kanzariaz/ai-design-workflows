@@ -94,7 +94,7 @@ function renderRow(skill) {
     btn.innerHTML = COPY_ICON + '<span class="btn__label btn__label--desktop">Copy Skill</span><span class="btn__label btn__label--mobile">Copy</span>';
     btn.addEventListener('click', async () => {
       try {
-        await navigator.clipboard.writeText(`npx skills add ${REPO} -s ${skill.id}`);
+        await navigator.clipboard.writeText(`npx skills add ${REPO} -s ${skill.id} -g`);
         showToast(`${skill.name} copied`, "Paste it into Claude Code or your terminal, let it run, and you're ready to use it.");
         window.tdSignal?.('copySkill', { skill: skill.id });
       } catch {
