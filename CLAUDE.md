@@ -3,8 +3,9 @@
 Landing site for Kanza's design skills, live at https://aidesignworkflows.com
 (repo `kanzariaz/ai-design-workflows`, renamed from `design-skills`; GitHub Pages from
 `main`/docs). `docs/` is the deliverable; rows render client-side
-from `docs/skills.json`; Copy buttons copy `npx skills add kanzariaz/ai-design-workflows -s <id> -g`
-(global: installs to ~/.claude/skills so it works in every project) and prefetch `docs/skills/<id>/SKILL.md`. Keep `docs/.nojekyll`.
+from `docs/skills.json`; Copy buttons copy `npx skills add kanzariaz/ai-design-workflows -s <id> -g -a claude-code -y`
+(-g global: ~/.claude/skills, works in every project; -a claude-code: Claude-only, matches
+the "Claude skills" marketing; -y: no prompts, one paste and done) and prefetch `docs/skills/<id>/SKILL.md`. Keep `docs/.nojekyll`.
 
 ## Working agreements
 
