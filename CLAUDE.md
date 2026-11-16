@@ -55,6 +55,17 @@ the "Claude skills" marketing; -y: no prompts, one paste and done) and prefetch 
   no box animations, that's a locked veto), records the source skill.
 - When a skill ships: flip its skills.json `status` to "copy" — everything else follows.
 
+## Share links and preview cards (live)
+
+- Share copies `aidesignworkflows.com/<id>/` – a tiny page per skill that carries its
+  Open Graph card, then redirects to `/#<id>` (keeps `?ref`/utm). Home has its own card.
+- Cards (`docs/og/*.png`, 1200×630) and pages (`docs/<id>/index.html`) are generated:
+  run `node tools/share-cards.mjs` after adding/renaming/re-describing a skill (uses
+  headless Chrome). Card brand reads "AI Design Workflows" – no dash.
+- Landing: row placed ~40% down the viewport (hash stripped during load so the browser
+  doesn't pin it to the top; `scroll-margin-top` as backup), then a pale apricot band
+  (`--color-landed`, distinct from the sand hover) holds ~2.5s and fades.
+
 ## Analytics (TelemetryDeck, live)
 
 pageview · copySkill{skill} · shareSkill{skill, method: sheet|link} · notifyClick{skill} · signupSuccess{source, placement: hero|footer} ·

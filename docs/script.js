@@ -10,8 +10,10 @@ const BELL_ICON = '<svg class="btn__icon" viewBox="0 0 16 16" fill="none" xmlns=
 
 const SHARE_ICON = '<svg class="btn__icon" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 10V2.5M5 5.2 8 2.2l3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5.5 7.5H4.2A1.2 1.2 0 0 0 3 8.7v4.6a1.2 1.2 0 0 0 1.2 1.2h7.6a1.2 1.2 0 0 0 1.2-1.2V8.7a1.2 1.2 0 0 0-1.2-1.2h-1.3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>';
 
-/* Share: phones open the native share sheet; computers copy a link that
-   opens the page right at this skill's row (#skill-id). */
+/* Share: phones open the native share sheet; computers copy the link.
+   The link is the skill's own page (/skill-id/), which carries its preview
+   card for iMessage/Slack/LinkedIn/X and then lands on the skill's row.
+   Those pages and cards are built by tools/share-cards.mjs. */
 function shareButton(skill) {
   const btn = document.createElement('button');
   btn.className = 'btn btn--share';
@@ -20,7 +22,7 @@ function shareButton(skill) {
   btn.setAttribute('aria-label', `Share ${skill.name}`);
   btn.innerHTML = SHARE_ICON;
   btn.addEventListener('click', async () => {
-    const url = `${location.origin}${location.pathname}#${skill.id}`;
+    const url = `${location.origin}/${skill.id}/`;
     const touch = window.matchMedia('(pointer: coarse)').matches;
     if (touch && navigator.share) {
       try {
@@ -162,11 +164,40 @@ async function init() {
   }
 
   /* rows render after load, so the browser's own jump to #skill-id misses – redo it */
-  const target = location.hash ? document.getElementById(decodeURIComponent(location.hash.slice(1))) : null;
-  target?.scrollIntoView({ block: 'center' });
+  const target = LANDING_ID ? document.getElementById(LANDING_ID) : null;
+  if (target) landOn(target);
+}
+
+/* Read the #skill-id now, then take it off the address bar while the page
+   settles: otherwise the browser does its own jump to the row once it
+   renders and pins it to the very top. It goes back once we've landed. */
+const LANDING_ID = location.hash ? decodeURIComponent(location.hash.slice(1)) : '';
+if (LANDING_ID) {
+  history.scrollRestoration = 'manual';
+  history.replaceState(null, '', location.pathname + location.search);
 }
 
 init();
+
+/* Bring a shared skill's row to just above the middle of the screen, with
+   rows above it for context, then light it up for a moment. Waits for the
+   fonts first: scrolling before they load lands short once the text reflows. */
+async function landOn(row) {
+  const place = () => {
+    const rect = row.getBoundingClientRect();
+    const top = window.scrollY + rect.top - (window.innerHeight * 0.42 - rect.height / 2);
+    window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+  };
+  try { await document.fonts.ready; } catch { /* fonts API missing – scroll anyway */ }
+  place();
+  /* once more after everything has loaded, in case late images shifted it */
+  if (document.readyState !== 'complete') window.addEventListener('load', place, { once: true });
+  history.replaceState(null, '', `${location.pathname}${location.search}#${row.id}`);
+  if (!row.classList.contains('skill-row')) return;
+  row.classList.add('skill-row--landed');
+  row.addEventListener('animationend', () => row.classList.remove('skill-row--landed'), { once: true });
+}
+
 
 /* ---- Email signup ---- */
 /* Kit (ConvertKit) form endpoint — accepts direct posts from the browser. */
